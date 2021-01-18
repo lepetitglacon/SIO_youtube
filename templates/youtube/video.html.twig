@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello YoutubeController!{% endblock %}
+
+{% block body %}
+    <style>
+        .videos-container{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+<div class="videos-container">
+    {{ video(video.url) }}
+</div>
+
+{% endblock %}

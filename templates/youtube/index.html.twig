@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello YoutubeController!{% endblock %}
+
+{% block body %}
+    <style>
+        .wrapper{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .videos-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .video{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .marginy-50{
+            margin-top: 50px;
+        }
+    </style>
+    <div class="wrapper">
+        <div class="videos-container marginy-50">
+            {% for video in videos %}
+                <div class="video">
+                    <a href="{{ path('app_video',{id: video.id}) }}">
+                        <img src="{{ miniature(video.url) }}">
+                    </a>
+
+                    <h1>{{ video.nom }}</h1>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="marginy-50" id="ajouterVideo">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+
+{% endblock %}

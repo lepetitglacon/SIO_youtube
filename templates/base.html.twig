@@ -8,6 +8,15 @@
         {% block javascripts %}{% endblock %}
     </head>
     <body>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+
+            height: 80vh;
+        }
+    </style>
+        {{ include("_menu.html.twig") }}
         {% block body %}{% endblock %}
     </body>
 </html>
